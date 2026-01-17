@@ -15,14 +15,16 @@ const apps = [
     platform: "Vários Dispositivos",
     platformColor: "bg-secondary",
     icon: Tablet,
-    credentials: { codigo: "pfast", username: "usuário", password: "senha" },
+    credentialFields: ["Código", "Username", "Password"],
+    description: "Suas credenciais serão enviadas após a assinatura",
   },
   {
     name: "Fun Play",
     platform: "Vários Dispositivos",
     platformColor: "bg-secondary",
     icon: Tablet,
-    credentials: { codigo: "pfast", username: "usuário", password: "senha" },
+    credentialFields: ["Código", "Username", "Password"],
+    description: "Suas credenciais serão enviadas após a assinatura",
   },
   {
     name: "FASTPRO",
@@ -43,30 +45,32 @@ const apps = [
     platform: "Vários Dispositivos",
     platformColor: "bg-secondary",
     icon: Tablet,
-    credentials: { codigo: "pfast", username: "usuário", password: "senha" },
+    credentialFields: ["Código", "Username", "Password"],
+    description: "Suas credenciais serão enviadas após a assinatura",
   },
   {
     name: "Blessed Player",
     platform: "Vários Dispositivos",
     platformColor: "bg-secondary",
     icon: Tablet,
-    credentials: { codigo: "pfast", username: "usuário", password: "senha" },
+    credentialFields: ["Código", "Username", "Password"],
+    description: "Suas credenciais serão enviadas após a assinatura",
   },
   {
     name: "IPTV Smarters",
     platform: "iOS",
     platformColor: "bg-gray-500",
     icon: Apple,
-    description: "Disponível na Apple Store",
-    serverInfo: { server: "http://fpn.one/", username: "usuário", password: "senha" },
+    description: "Disponível na Apple Store - Credenciais enviadas após assinatura",
+    serverFields: ["Server", "Username", "Password"],
   },
   {
     name: "XCIPTV Player",
     platform: "Android",
     platformColor: "bg-green-500",
     icon: Smartphone,
-    description: "Para TV Box, Smartphone e Tablet",
-    serverInfo: { xcApiUrl: "http://fpn.one/", usuario: "usuário", senha: "senha" },
+    description: "Para TV Box, Smartphone e Tablet - Credenciais enviadas após assinatura",
+    serverFields: ["XC API URL", "Usuário", "Senha"],
   },
 ];
 
@@ -119,24 +123,21 @@ const AppsSection = () => {
                 </a>
               )}
               
-              {app.credentials && (
-                <div className="space-y-1 text-sm">
-                  <p><span className="font-semibold text-foreground">Codigo:</span> <span className="text-muted-foreground">{app.credentials.codigo}</span></p>
-                  <p><span className="font-semibold text-foreground">Username:</span> <span className="text-muted-foreground">{app.credentials.username}</span></p>
-                  <p><span className="font-semibold text-foreground">Password:</span> <span className="text-muted-foreground">{app.credentials.password}</span></p>
+              {app.credentialFields && (
+                <div className="space-y-1 text-sm bg-muted/50 p-3 rounded-lg">
+                  <p className="text-xs text-muted-foreground italic mb-2">Campos necessários:</p>
+                  {app.credentialFields.map((field, idx) => (
+                    <p key={idx}><span className="font-semibold text-foreground">{field}:</span> <span className="text-muted-foreground">••••••••</span></p>
+                  ))}
                 </div>
               )}
               
-              {app.serverInfo && (
-                <div className="space-y-1 text-sm">
-                  {app.serverInfo.server && (
-                    <p><span className="font-semibold text-foreground">Server:</span> <span className="text-muted-foreground">{app.serverInfo.server}</span></p>
-                  )}
-                  {app.serverInfo.xcApiUrl && (
-                    <p><span className="font-semibold text-foreground">XC API URL:</span> <span className="text-muted-foreground">{app.serverInfo.xcApiUrl}</span></p>
-                  )}
-                  <p><span className="font-semibold text-foreground">Usuário:</span> <span className="text-muted-foreground">{app.serverInfo.usuario || app.serverInfo.username}</span></p>
-                  <p><span className="font-semibold text-foreground">Senha:</span> <span className="text-muted-foreground">{app.serverInfo.senha || app.serverInfo.password}</span></p>
+              {app.serverFields && (
+                <div className="space-y-1 text-sm bg-muted/50 p-3 rounded-lg">
+                  <p className="text-xs text-muted-foreground italic mb-2">Campos necessários:</p>
+                  {app.serverFields.map((field, idx) => (
+                    <p key={idx}><span className="font-semibold text-foreground">{field}:</span> <span className="text-muted-foreground">••••••••</span></p>
+                  ))}
                 </div>
               )}
             </div>
