@@ -1,72 +1,108 @@
 import { Button } from "@/components/ui/button";
-import { Play, Star } from "lucide-react";
-import heroBg from "@/assets/hero-bg.jpg";
+import { ArrowRight, CheckCircle2, Globe2, PhoneCall, ShieldCheck } from "lucide-react";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroBg})` }}
-      />
-      
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background" />
-      
-      {/* Glow Effects */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[120px] animate-pulse" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/20 rounded-full blur-[120px] animate-pulse" />
-      
-      {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 text-center">
-        <div className="flex items-center justify-center gap-2 mb-6">
-          <Play className="w-12 h-12 text-primary fill-primary" />
-          <h1 className="text-5xl md:text-7xl font-bold text-foreground">
-            ND <span className="text-primary">Player</span>
-          </h1>
-        </div>
-        
-        <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto mb-8">
-          A melhor experiência em IPTV com milhares de canais, filmes e séries em alta qualidade
-        </p>
-        
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-          <Button 
-            size="lg" 
-            className="bg-primary hover:bg-primary/90 text-primary-foreground text-lg px-8 py-6 shadow-lg shadow-primary/30"
-            asChild
-          >
-            <a href="https://invoice.infinitepay.io/plans/nathirson-de-jesus-alves/mvSs4RMnN" target="_blank" rel="noopener noreferrer">
-              Assinar Agora - R$ 35/mês
-            </a>
-          </Button>
-          
-          <Button 
-            size="lg" 
-            variant="outline" 
-            className="border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground text-lg px-8 py-6"
-            asChild
-          >
-            <a href="https://guiadeconteudo.blog/" target="_blank" rel="noopener noreferrer">
-              Ver Conteúdo
-            </a>
-          </Button>
-        </div>
-        
-        {/* Trust Badges */}
-        <div className="flex flex-wrap items-center justify-center gap-6 text-muted-foreground">
-          <div className="flex items-center gap-2">
-            <Star className="w-5 h-5 text-secondary fill-secondary" />
-            <span>Qualidade HD/4K</span>
+    <section className="relative overflow-hidden bg-gradient-to-b from-sky-50 via-white to-white">
+      <div className="absolute inset-0">
+        <div className="absolute -top-32 right-0 h-72 w-72 rounded-full bg-primary/10 blur-3xl" />
+        <div className="absolute top-24 left-0 h-80 w-80 rounded-full bg-secondary/10 blur-3xl" />
+      </div>
+
+      <div className="relative z-10">
+        <header className="container mx-auto flex items-center justify-between px-4 py-6">
+          <div className="flex items-center gap-3">
+            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary text-primary-foreground font-bold">
+              IX
+            </div>
+            <div>
+              <p className="text-lg font-semibold text-foreground">IXC Soft</p>
+              <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                Telecom Suite
+              </p>
+            </div>
           </div>
-          <div className="flex items-center gap-2">
-            <Star className="w-5 h-5 text-secondary fill-secondary" />
-            <span>Suporte 24/7</span>
+          <nav className="hidden items-center gap-8 text-sm text-muted-foreground lg:flex">
+            <a className="hover:text-foreground transition-colors" href="#solucoes">Soluções</a>
+            <a className="hover:text-foreground transition-colors" href="#beneficios">Benefícios</a>
+            <a className="hover:text-foreground transition-colors" href="#planos">Planos</a>
+            <a className="hover:text-foreground transition-colors" href="#clientes">Clientes</a>
+          </nav>
+          <Button className="rounded-full px-6" asChild>
+            <a href="#contato">Falar com especialista</a>
+          </Button>
+        </header>
+
+        <div className="container mx-auto grid items-center gap-12 px-4 pb-20 pt-6 lg:grid-cols-[1.1fr_0.9fr]">
+          <div>
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-white px-4 py-2 text-sm text-primary">
+              <ShieldCheck className="h-4 w-4" />
+              Plataforma líder para provedores e operadoras regionais
+            </div>
+            <h1 className="text-4xl font-bold text-foreground md:text-5xl lg:text-6xl">
+              Tudo o que o seu provedor precisa para operar com eficiência.
+            </h1>
+            <p className="mt-6 text-lg text-muted-foreground">
+              Uma suíte completa com ERP, financeiro, atendimento, billing, automações e apps
+              para escalar sua operação e encantar seus assinantes.
+            </p>
+            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+              <Button size="lg" className="rounded-full px-8" asChild>
+                <a href="#contato">
+                  Agendar demonstração <ArrowRight className="ml-2 h-4 w-4" />
+                </a>
+              </Button>
+              <Button size="lg" variant="outline" className="rounded-full px-8" asChild>
+                <a href="#solucoes">Ver soluções</a>
+              </Button>
+            </div>
+            <div className="mt-10 grid gap-3 text-sm text-muted-foreground sm:grid-cols-3">
+              {[
+                "Implantação assistida",
+                "Migração segura",
+                "Treinamentos contínuos",
+              ].map((item) => (
+                <div key={item} className="flex items-center gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-primary" />
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
           </div>
-          <div className="flex items-center gap-2">
-            <Star className="w-5 h-5 text-secondary fill-secondary" />
-            <span>Multi-dispositivos</span>
+
+          <div className="rounded-3xl border border-border bg-white p-8 shadow-xl">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-sm text-muted-foreground">Dashboard em tempo real</p>
+                <h2 className="text-2xl font-semibold text-foreground">Operação sob controle</h2>
+              </div>
+              <div className="rounded-2xl bg-primary/10 p-3 text-primary">
+                <Globe2 className="h-6 w-6" />
+              </div>
+            </div>
+            <div className="mt-6 grid gap-4">
+              <div className="rounded-2xl bg-slate-50 p-4">
+                <p className="text-xs uppercase text-muted-foreground">Faturamento mensal</p>
+                <p className="text-2xl font-semibold text-foreground">R$ 5,8M</p>
+                <p className="text-xs text-emerald-500">+18% vs. mês anterior</p>
+              </div>
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div className="rounded-2xl border border-border p-4">
+                  <p className="text-xs uppercase text-muted-foreground">Atendimentos</p>
+                  <p className="text-xl font-semibold text-foreground">12.450</p>
+                  <p className="text-xs text-muted-foreground">SLA 93%</p>
+                </div>
+                <div className="rounded-2xl border border-border p-4">
+                  <p className="text-xs uppercase text-muted-foreground">Cobrança</p>
+                  <p className="text-xl font-semibold text-foreground">1.840</p>
+                  <p className="text-xs text-muted-foreground">boletos emitidos hoje</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-3 rounded-2xl bg-primary/5 p-4 text-sm">
+                <PhoneCall className="h-5 w-5 text-primary" />
+                Suporte dedicado + consultoria estratégica para seu crescimento.
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -1,42 +1,51 @@
 import { Button } from "@/components/ui/button";
-import { BookOpen, User } from "lucide-react";
+import { BookOpen, FileText, Users } from "lucide-react";
 
 const links = [
   {
     icon: BookOpen,
-    title: "Guia de Conteúdo",
-    description: "Navegue pela programação disponível",
-    buttonText: "Acessar Guia",
-    href: "https://guiadeconteudo.blog/",
+    title: "Academia IXC",
+    description: "Treinamentos e certificações para sua equipe.",
+    buttonText: "Ver conteúdos",
+    href: "#contato",
   },
   {
-    icon: User,
-    title: "Área do Cliente",
-    description: "Acesso exclusivo com lista ativa",
-    buttonText: "Entrar",
-    href: "https://guiadeconteudo.blog/",
+    icon: Users,
+    title: "Cases de Sucesso",
+    description: "Resultados reais de ISPs que cresceram com a suíte.",
+    buttonText: "Ler cases",
+    href: "#clientes",
+  },
+  {
+    icon: FileText,
+    title: "Central de Ajuda",
+    description: "Base de conhecimento e suporte técnico.",
+    buttonText: "Acessar central",
+    href: "#contato",
   },
 ];
 
 const LinksSection = () => {
   return (
-    <section className="py-20 bg-background">
+    <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <span className="text-4xl mb-4 inline-block">⭐</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Links Importantes
+          <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">
+            Recursos
+          </span>
+          <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground mb-4">
+            Conteúdos que apoiam o crescimento do seu ISP.
           </h2>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {links.map((link, index) => (
             <div
               key={index}
-              className="bg-card border border-border rounded-2xl p-8 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10"
+              className="bg-white border border-border rounded-2xl p-8 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10"
             >
               <div className="flex items-start gap-4 mb-4">
-                <div className="p-3 bg-muted rounded-xl">
+                <div className="p-3 bg-primary/10 rounded-xl">
                   <link.icon className="w-6 h-6 text-primary" />
                 </div>
                 <div>
@@ -45,11 +54,8 @@ const LinksSection = () => {
                 </div>
               </div>
               
-              <Button 
-                className="bg-primary hover:bg-primary/90 text-primary-foreground"
-                asChild
-              >
-                <a href={link.href} target="_blank" rel="noopener noreferrer">
+              <Button className="rounded-full" asChild>
+                <a href={link.href}>
                   {link.buttonText}
                 </a>
               </Button>

@@ -1,33 +1,60 @@
-import { Play } from "lucide-react";
+import { Mail, MapPin, PhoneCall } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="py-12 bg-card border-t border-border">
+    <footer id="contato" className="py-16 bg-slate-900 text-white">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col items-center justify-center gap-4">
-          <div className="flex items-center gap-2">
-            <Play className="w-8 h-8 text-primary fill-primary" />
-            <span className="text-2xl font-bold text-foreground">
-              ND <span className="text-primary">Player</span>
-            </span>
+        <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr]">
+          <div>
+            <div className="flex items-center gap-3">
+              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white text-slate-900 font-bold">
+                IX
+              </div>
+              <div>
+                <p className="text-lg font-semibold">IXC Soft</p>
+                <p className="text-xs uppercase tracking-[0.2em] text-slate-300">
+                  Telecom Suite
+                </p>
+              </div>
+            </div>
+            <p className="mt-4 text-sm text-slate-300">
+              Tecnologia e consultoria para ISPs que querem crescer com eficiência,
+              controle financeiro e atendimento de excelência.
+            </p>
           </div>
-          
-          <p className="text-muted-foreground text-center">
-            A melhor experiência em streaming de TV, filmes e séries.
-          </p>
-          
-          <div className="flex gap-6 text-sm text-muted-foreground">
-            <a href="https://guiadeconteudo.blog/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
-              Guia de Conteúdo
+
+          <div className="space-y-3 text-sm text-slate-300">
+            <p className="text-base font-semibold text-white">Contato</p>
+            <div className="flex items-center gap-2">
+              <PhoneCall className="h-4 w-4 text-primary" />
+              (48) 3024-8888
+            </div>
+            <div className="flex items-center gap-2">
+              <Mail className="h-4 w-4 text-primary" />
+              contato@ixcsoft.com.br
+            </div>
+            <div className="flex items-start gap-2">
+              <MapPin className="h-4 w-4 text-primary mt-0.5" />
+              Rua dos Provedores, 1000 - Florianópolis/SC
+            </div>
+          </div>
+
+          <div className="space-y-3 text-sm text-slate-300">
+            <p className="text-base font-semibold text-white">Links rápidos</p>
+            <a href="#solucoes" className="block hover:text-white transition-colors">
+              Soluções
             </a>
-            <a href="https://guiadeconteudo.blog/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
-              Área do Cliente
+            <a href="#planos" className="block hover:text-white transition-colors">
+              Planos
+            </a>
+            <a href="#clientes" className="block hover:text-white transition-colors">
+              Clientes
             </a>
           </div>
-          
-          <p className="text-muted-foreground text-sm mt-4">
-            © {new Date().getFullYear()} ND Player. Todos os direitos reservados.
-          </p>
+        </div>
+
+        <div className="mt-12 border-t border-white/10 pt-6 text-xs text-slate-400">
+          © {new Date().getFullYear()} IXC Soft. Todos os direitos reservados.
         </div>
       </div>
     </footer>
