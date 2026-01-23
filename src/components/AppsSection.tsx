@@ -1,90 +1,64 @@
 import { Badge } from "@/components/ui/badge";
-import { Globe, Monitor, Smartphone, Tablet, Apple } from "lucide-react";
+import { BarChart3, Bolt, Headset, Layers3, ShieldCheck, Smartphone } from "lucide-react";
 
 const apps = [
   {
-    name: "WebPlayer",
-    platform: "Web",
+    name: "ERP Operacional",
+    platform: "Core",
     platformColor: "bg-primary",
-    icon: Globe,
-    description: "Acesse diretamente do navegador",
-    link: "http://vouver.me",
+    icon: Layers3,
+    description: "Cadastros, contratos, estoque e gestão completa do provedor.",
   },
   {
-    name: "LazerPlayer",
-    platform: "Vários Dispositivos",
+    name: "Cobrança Inteligente",
+    platform: "Financeiro",
     platformColor: "bg-secondary",
-    icon: Tablet,
-    credentialFields: ["Código", "Username", "Password"],
-    description: "Suas credenciais serão enviadas após a assinatura",
+    icon: Bolt,
+    description: "Emissão automática, régua de cobrança e conciliação bancária.",
   },
   {
-    name: "Fun Play",
-    platform: "Vários Dispositivos",
-    platformColor: "bg-secondary",
-    icon: Tablet,
-    credentialFields: ["Código", "Username", "Password"],
-    description: "Suas credenciais serão enviadas após a assinatura",
+    name: "Atendimento Omnichannel",
+    platform: "Suporte",
+    platformColor: "bg-sky-500",
+    icon: Headset,
+    description: "Tickets, SLA e comunicação centralizada com seus assinantes.",
   },
   {
-    name: "FASTPRO",
-    platform: "Android",
-    platformColor: "bg-green-500",
+    name: "Autoatendimento",
+    platform: "App",
+    platformColor: "bg-emerald-500",
     icon: Smartphone,
-    link: "http://aftv.news/5279242",
+    description: "Aplicativo personalizado para pagamentos, abertura de chamados e consumo.",
   },
   {
-    name: "FastWin",
-    platform: "Windows",
-    platformColor: "bg-blue-500",
-    icon: Monitor,
-    link: "https://appcliente.me/fastwin.exe",
+    name: "BI e Analytics",
+    platform: "Dados",
+    platformColor: "bg-indigo-500",
+    icon: BarChart3,
+    description: "Dashboards em tempo real para decisões estratégicas.",
   },
   {
-    name: "XCLOUD",
-    platform: "Vários Dispositivos",
-    platformColor: "bg-secondary",
-    icon: Tablet,
-    credentialFields: ["Código", "Username", "Password"],
-    description: "Suas credenciais serão enviadas após a assinatura",
-  },
-  {
-    name: "Blessed Player",
-    platform: "Vários Dispositivos",
-    platformColor: "bg-secondary",
-    icon: Tablet,
-    credentialFields: ["Código", "Username", "Password"],
-    description: "Suas credenciais serão enviadas após a assinatura",
-  },
-  {
-    name: "IPTV Smarters",
-    platform: "iOS",
-    platformColor: "bg-gray-500",
-    icon: Apple,
-    description: "Disponível na Apple Store - Credenciais enviadas após assinatura",
-    serverFields: ["Server", "Username", "Password"],
-  },
-  {
-    name: "XCIPTV Player",
-    platform: "Android",
-    platformColor: "bg-green-500",
-    icon: Smartphone,
-    description: "Para TV Box, Smartphone e Tablet - Credenciais enviadas após assinatura",
-    serverFields: ["XC API URL", "Usuário", "Senha"],
+    name: "Segurança e Compliance",
+    platform: "Governança",
+    platformColor: "bg-rose-500",
+    icon: ShieldCheck,
+    description: "Auditoria, LGPD e controles avançados de acesso.",
   },
 ];
 
 const AppsSection = () => {
   return (
-    <section className="py-20 bg-background">
+    <section id="solucoes" className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <span className="text-4xl mb-4 inline-block">📱</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Aplicativos Compatíveis
+          <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">
+            Soluções
+          </span>
+          <h2 className="mt-4 text-3xl md:text-4xl font-bold text-foreground mb-4">
+            Uma plataforma completa para toda a jornada do assinante.
           </h2>
-          <p className="text-muted-foreground text-lg">
-            Assista em qualquer dispositivo com nossos apps recomendados
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            Módulos integrados e especializados para cada área da sua operação.
           </p>
         </div>
         
@@ -92,10 +66,10 @@ const AppsSection = () => {
           {apps.map((app, index) => (
             <div
               key={index}
-              className="bg-card border border-border rounded-2xl p-6 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10"
+              className="bg-white border border-border rounded-2xl p-6 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10"
             >
               <div className="flex items-start gap-4 mb-4">
-                <div className="p-3 bg-muted rounded-xl">
+                <div className="p-3 bg-primary/10 rounded-xl">
                   <app.icon className="w-6 h-6 text-primary" />
                 </div>
                 <div className="flex-1">
@@ -108,38 +82,7 @@ const AppsSection = () => {
                 </div>
               </div>
               
-              {app.description && (
-                <p className="text-muted-foreground mb-3">{app.description}</p>
-              )}
-              
-              {app.link && (
-                <a 
-                  href={app.link} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-primary hover:text-primary/80 underline break-all"
-                >
-                  {app.link}
-                </a>
-              )}
-              
-              {app.credentialFields && (
-                <div className="space-y-1 text-sm bg-muted/50 p-3 rounded-lg">
-                  <p className="text-xs text-muted-foreground italic mb-2">Campos necessários:</p>
-                  {app.credentialFields.map((field, idx) => (
-                    <p key={idx}><span className="font-semibold text-foreground">{field}:</span> <span className="text-muted-foreground">••••••••</span></p>
-                  ))}
-                </div>
-              )}
-              
-              {app.serverFields && (
-                <div className="space-y-1 text-sm bg-muted/50 p-3 rounded-lg">
-                  <p className="text-xs text-muted-foreground italic mb-2">Campos necessários:</p>
-                  {app.serverFields.map((field, idx) => (
-                    <p key={idx}><span className="font-semibold text-foreground">{field}:</span> <span className="text-muted-foreground">••••••••</span></p>
-                  ))}
-                </div>
-              )}
+              <p className="text-muted-foreground">{app.description}</p>
             </div>
           ))}
         </div>
